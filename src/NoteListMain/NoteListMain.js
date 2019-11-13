@@ -8,9 +8,6 @@ import { getNotesForFolder } from '../notes-helpers'
 import './NoteListMain.css'
 
 export default class NoteListMain extends React.Component {
-  state = {
-    notes: []
-  }
   static defaultProps = {
     match: {
       params: {}
