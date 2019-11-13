@@ -8,12 +8,15 @@ import { getNotesForFolder } from '../notes-helpers'
 import './NoteListMain.css'
 
 export default class NoteListMain extends React.Component {
+  state = {
+    notes: []
+  }
   static defaultProps = {
     match: {
       params: {}
     }
   }
-  static contextType = ApiContext
+  static contextType = ApiContext;
 
   render() {
     const { folderId } = this.props.match.params
@@ -28,6 +31,7 @@ export default class NoteListMain extends React.Component {
                 id={note.id}
                 name={note.name}
                 modified={note.modified}
+                onDeleteNote={this.handleDeleteNote}
               />
             </li>
           )}
